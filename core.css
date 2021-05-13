@@ -1,0 +1,88 @@
+html, body {
+height: 100%;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+body > * {
+    border:3px solid black
+}
+
+body > header, body > footer {
+    background:blueviolet;
+    color: grey;
+    height: 70px;
+    line-height: 70px;
+    text-align:center;
+}
+
+main {
+background: hotpink;
+}
+
+main > .content {
+    background:indianred;
+}
+
+main > aside {
+background: lightgreen;
+height: 100%;
+}
+
+main > nav {
+background: lightseagreen;
+height:100%;
+}
+
+aside > ul {
+    list-style-type: none;
+
+}
+nav > ul {
+    list-style-type: none;
+}
+
+.deck {
+    background: magenta;
+}
+
+.deck:first-child{
+    border-bottom: 3px solid goldenrod;
+
+}
+
+.centerWords{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+    background-color: indigo;
+}
+
+a:link {
+    color:lightcoral;
+    background-color: transparent;
+    text-decoration:none;
+}
+
+a:visted{
+    color:olivedrab;
+    background-color: transparent;
+    text-decoration:none;
+}
+
+a:hover{
+    color:paleturquoise;
+    background-color: transparent;
+    text-decoration:underline;
+}
+
+a:active{
+    color:plum;
+    background-color: transparent;
+    text-decoration:underline;
+}
+
+ul{
+    line-height:25%;
+
+}
