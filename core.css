@@ -42,11 +42,11 @@ nav > ul {
 }
 
 .deck {
-    background: magenta;
+    background:tomato;
 }
 
-.deck:first-child{
-    border-bottom: 3px solid goldenrod;
+.deck:first-child {
+    border-bottom: 3px solid grey;
 
 }
 
