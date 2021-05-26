@@ -47,14 +47,16 @@ let PRODUCTS_ARRAY = [
 let clicks = 0;
 
 function RenderImages(){
-
-for (let i=0; i<= 2; i++){
+  console.log('Total clicks =', clicks);
+  for (let i=0; i<= 2; i++){
 imageContainer = document.getElementById(`Img${i}Container`);
 let img = document.createElement('img');
 img.setAttribute('scr', PRODUCTS_ARRAY[i].imgURL);
 img.setAttribute('id', PRODUCTS_ARRAY[i].HTMLid);
 imageContainer.appendChild(img);
-function handleClick() 
+PRODUCTS_ARRAY[i].totalViews++;
+console.log('total views: ', PRODUCTS_ARRAY[i].HTMLid, PRODUCTS_ARRAY[i].totalviews);
+
 }
 }
 function handleCLick(event) {
@@ -64,18 +66,39 @@ function handleCLick(event) {
 
 for (let i=0; i < PRODUCTS_ARRAY.length; i++) {
   if(imageid == PRODUCTS_ARRAY[i].HTMLid.id){
-    console.log('it works');
-    console.log('no');
+  PRODUCTS_ARRAY[i].totalVotes++
+  console.log('total votes', PRODUCTS_ARRAY[i].totalVotes);
   }
   }
+if (clicks !== 25){
+  for(let i=0; i <=2; i++) {
+    let shuffle = getrandomInt (PRODUCTS_ARRAY.length);
+    let removeItem = PRODUCTS_ARRAY.shift();
+    let addItem = PRODUCTS_ARRAY.splice(shuffle =4, 0, removeItem);
+
+}
+
+for (let i=0; i<3; i++) {
+  let parent = document.getElementById(`Img${i}Container`);
+  parent.removeChild(parent.lastChild);
+
+}
+
+ RenderImages();
+} else {
+  let divs = documnet.getElementsByTagName('div');
+  for (let i=1; i< divs.length - 1; i++) {
+    divs[i].removeEventListners('clicks', handleClick);
+    console.log('25 clicks')
+}
+}
 
 (function startApp(){
   console.log('marissa 2021');
   for(let i=0; i < 3; i++ ){
     let listen = document.getElementById(`Img${i}Container`);
-
   listen.addEventListner('click', handleClick);
   }
- renderImages();
 
-})()
+RenderImages();
+})();
