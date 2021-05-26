@@ -1,7 +1,7 @@
 main {
     display: grid;
     grid-template-columns: 25-px 1fr 250px;
-    height: calc (100% - 12vh)
+    height: calc(100% - 12vh)
 
 }
 
@@ -34,9 +34,11 @@ main > .content{
 .imgCards {
    height: 250px;
    width: 250px;
-   background:powderblue
+   background:powderblue;
+   text-align: center; 
 }
+
 
 main > aside {
     order: 3;
-}
+};

@@ -60,10 +60,11 @@ function handleClick()
 function handleCLick(event) {
   clicks++;
   console.log('Image' + event.target.id + ' was clicked');
-  let parentId = event.target.id;
-  if(PRODUCTS_ARRAY[0].HTMLid == partentID) {
+  let imgageId = event.target.id;
+
+for (let i=0; i < PRODUCTS_ARRAY.length; i++) {
+  if(imageid == PRODUCTS_ARRAY[i].HTMLid.id){
     console.log('it works');
-  }else {
     console.log('no');
   }
   }
@@ -77,4 +78,4 @@ function handleCLick(event) {
   }
  renderImages();
 
-})();
+})()
