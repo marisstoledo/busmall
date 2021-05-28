@@ -1,27 +1,4 @@
 'use strict';
-console.log('it works')
-function getRandimInt(max) {
-    return Math.floor(Math.random()* max);
-}
-
-let img1 = document.getElementById('img1');
-let img2 = document.getElementById('img2');
-let img3 = document.getElementById('img3');
-
-img1.addEventListener('click', runFunctionImage1); 
-
-img2.addEventListener('click', function(){ 
-  console.log('I am in img2');
-})
-
-img3.addEventListener('click', function(){
-  console.log('I am in img3');
-})
-
-function runFunctionImage1() {
-    console.log('I am in img1')
-}
-
 
 let PRODUCTS_ARRAY = [
   { HTMLid : 'bag', imgURL: '../images/bag.jpg', totalViews: 0,totalVotes: 0},
@@ -53,6 +30,9 @@ imageContainer = document.getElementById(`Img${i}Container`);
 let img = document.createElement('img');
 img.setAttribute('scr', PRODUCTS_ARRAY[i].imgURL);
 img.setAttribute('id', PRODUCTS_ARRAY[i].HTMLid);
+img.setAttribute('class', 'item');
+
+
 imageContainer.appendChild(img);
 PRODUCTS_ARRAY[i].totalViews++;
 console.log('total views: ', PRODUCTS_ARRAY[i].HTMLid, PRODUCTS_ARRAY[i].totalviews);
@@ -62,43 +42,118 @@ console.log('total views: ', PRODUCTS_ARRAY[i].HTMLid, PRODUCTS_ARRAY[i].totalvi
 function handleCLick(event) {
   clicks++;
   console.log('Image' + event.target.id + ' was clicked');
-  let imgageId = event.target.id;
+  let imgageid = event.target.id;
 
 for (let i=0; i < PRODUCTS_ARRAY.length; i++) {
-  if(imageid == PRODUCTS_ARRAY[i].HTMLid.id){
+  if(imageid === PRODUCTS_ARRAY[i].HTMLid.id){
   PRODUCTS_ARRAY[i].totalVotes++
   console.log('total votes', PRODUCTS_ARRAY[i].totalVotes);
   }
   }
 if (clicks !== 25){
   for(let i=0; i <=2; i++) {
-    let shuffle = getrandomInt (PRODUCTS_ARRAY.length);
-    let removeItem = PRODUCTS_ARRAY.shift();
-    let addItem = PRODUCTS_ARRAY.splice(shuffle =4, 0, removeItem);
+  
+    
+for (let i=0; i<3; i++) {
+  let random= Math.floor(Math.random() * PRODUCTS_ARRAY.length -1);
+  let item= PRODUCTS_ARRAY.shift();
+  PRODUCTS_ARRAY.splice(PRODUCTS_ARRAY.length -1, 0, item);
 
 }
-
-for (let i=0; i<3; i++) {
+for(let i=0; i<3; i++) {
   let parent = document.getElementById(`Img${i}Container`);
   parent.removeChild(parent.lastChild);
 
 }
+console.log('clicks:', clicks);
 
  RenderImages();
-} else {
-  let divs = documnet.getElementsByTagName('div');
-  for (let i=1; i< divs.length - 1; i++) {
-    divs[i].removeEventListners('clicks', handleClick);
-    console.log('25 clicks')
-}
-}
 
-(function startApp(){
-  console.log('marissa 2021');
-  for(let i=0; i < 3; i++ ){
-    let listen = document.getElementById(`Img${i}Container`);
-  listen.addEventListner('click', handleClick);
+}else {
+  let divs = documnet.getElementsByTagName('div');
+  for (let i=1; i<divs.length - 1; i++) {
+    divs[i].removeEventListners('clicks', handleClick);
+  }
+    console.log('25 clicks')
+    renderResults();
+}
+}
+function renderResults() {
+  let resultSection = document.getElementById('resultSection');
+  let div = document.createElement('div');
+  div.setAttribute('id', 'result');
+  resultSection.appendChild(div);
+
+  let h3 = document.createElement('h3');
+  h3.textContent = 'Results: ';
+  div.appendChild(h3);
+
+  let ol = document.createElement('ol');
+  div.appendChild(ol);
+  for (let i=0; i < PRODUCTS_ARRAY.length; i++) {
+    let listItem = document.createElement('li');
+    listItem.textContent= `${PRODUCTS_ARRAY[i].totalVotes} for ${PRODUCTS_ARRAY[i].HTMLid}`;
+    ol.appendChild(listItem);
   }
 
-RenderImages();
+  renderChart();
+ function renderChart() 
+     console.log('renderChart was called')
+       const barData = {
+      type: 'bar',
+      data: {
+        labels : [],
+        datasets : [
+          {
+            data: [],
+            backgroundColor: 'rgb(64, 211, 191',
+            borderColor: 'rbb(46, 146, 133',
+             pointBackgroundColor: 'rgb(46, 135, 100',
+          }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            maxBarThickness: 30,
+          }],
+          yAxes: [{
+            gridLines: {
+              offsetGridLines: false,
+            },
+            ticks: {stepSize: 1},
+            maintainAspectRatio: false,
+          }]
+        },
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: 'Final Vote Data'
+        }
+      }
+    };
+  
+    let container = document.getElementById('graph');
+  
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+    container.appendChild(canvas);
+  
+    for ( let i=0; i< PRODUCTS_ARRAY.length; i++) {
+      barData.data.labels.push(PRODUCTS_ARRAY[i].HTMLid)
+      barData.data.datasets[0]['data'].push(PRODUCTS_ARRAY[i].totalVotes);
+    }
+  
+    new Chart(ctx, barData);
+  
+  }
+  
+  (function startApp() {
+    for(let i=0; i < 3; i++) {
+      let imgContainer = document.getElementById(`img${i}Container`);
+      imgContainer.addEventListener('click', handleClick);
+    }
+    renderImages();
 })();

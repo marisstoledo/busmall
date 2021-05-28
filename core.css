@@ -1,100 +1,4 @@
-/* 
-html, body {
-    height: 100%;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-    
-  }
-  
-  body > * {
-    border:3px solid #8bc34a;
-  }
-  
-  body > header, body > footer {
-    background:#444;
-    color:#8bc34a;
-    height: 70px;
-    line-height:70px;
-    text-align:center;
-  }
-  
-  main {
-    background: #444;
-  }
-  
-  main > .content {
-    background: #444;;
-  }
-  
-  main > aside {
-    background: #444;;
-    height: 100%
-  }
-  
-  main > nav {
-    background: #444;;
-    height: 100%;
-    font-size: 1.25em;
-  }
-  
-  aside > ul {
-    list-style-type: none;
-  }
-  nav > ul {
-    list-style-type: none;
-  }
-  
-  .deck {
-    background: #824AC3;
-  }
-  
-  .deck:first-child {
-    border-bottom: 3px solid #8bc34a
-  }
-  
-  
-  .centerWords {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .navAlign {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items:flex-start;
-    background-color: #444;
-  }
-  
-  
-  a:link {
-    color: #8bc34a;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:visited {
-    color: #4A8BC3;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: #824AC3;
-    background-color: transparent;
-    text-decoration: underline;
-  }
-  
-  a:active {
-    color: #C34A8B;
-    background-color: transparent;
-    text-decoration: underline;
-  }
-  
-  ul {
-    line-height: 250%
-  } */
+
 
  html, body {
 height: 100%;
@@ -112,18 +16,16 @@ body > header, body > footer {
     line-height: 70px;
     text-align:center;
 }
-
-main {
-background: hotpink;
-}
  
-main > .content > main > section > #Img0Container {
+/* main > .content > main > section > #Img0Container {
     order: 1;
     margin-left: 75px;
-    margin-right: 50px;
+    margin-right: 100px;
 }
 main > .content > main > section > #Img1COntainer {
     order: 2;
+    margin-left: 75px;
+    margin-right: 100px;
 }
 main > .content > main > section > #Img2Container {
     order: 3;
@@ -131,7 +33,7 @@ main > .content > main > section > #Img2Container {
     margin-right: 50px; 
 
 }
- main > .content > main > section > div {
+  main > .content > main > section > div {
     font-weight: bold;
     color:blanchedalmond;
     background-color:lightslategrey;
@@ -147,16 +49,18 @@ main > .content > main > section > #Img2Container {
 
 main > .content > main > section > div > img {
     height: 200px;
-    width: 200px; 
+    width: 200px;  */
 
 }
-
+main{
+  background: hotpink;
+}
 main > .content {
-    background:indianred;;
+    background:indianred;
 }
 
 main > aside {
-background: lightgreen;;
+background: lightgreen;
 height: 100%;
 }
 
@@ -188,13 +92,13 @@ nav > ul {
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    /* background-color: rgb(224, 138, 217); */
 }
 
 .navAlign {
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
+align-items:flex-start;
 background: orchid;
 }
 
@@ -205,13 +109,13 @@ a:link {
 }
 
 a:visited {
-    color:olivedrab;
+    color:turquoise;
     background-color: transparent;
     text-decoration:none;
 }
 
 a:hover {
-    color:paleturquoise;
+    color:blueviolet;
     background-color: transparent;
     text-decoration:underline;
 }
@@ -223,6 +127,6 @@ a:active{
 }
 
 ul{
-    line-height:25%;
+    line-height:250%;
 
 } 
